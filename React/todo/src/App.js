@@ -41,21 +41,49 @@
 // export default App;
 
 
-import React from 'react';
-import VaildationSample from './component/ValidationSample';
+// import React from 'react';
+// import VaildationSample from './component/ValidationSample';
 
-const App = () => {
-  return <VaildationSample/>
-}
+// const App = () => {
+//   return <VaildationSample/>
+// }
 
-export default App;
+// export default App;
 
 
 // import React from 'react';
 // import ResSample from './component/RefSample';
 
 // const App = () => {
-//   return <ResSample/>
+  //   return <ResSample/>
+  // }
+  
+  // export default App;
+  
+// import React from 'react';
+import React, {Component} from 'react';
+import ScrollBox from './component/ScrollBox';
+
+// const App = () => {
+//   return (
+//     <div>
+//       <ScrollBox ref={(ref) => this.scrollBox=ref}/>
+//       <button onClick={() => this.scrollBox.scrollToBottom()} >
+//         맨 밑으로
+//       </button>
+//     </div>
+//   );
 // }
 
-// export default App;
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <ScrollBox ref={(ref) => this.scrollBox=ref}/>
+        <button onClick={() => this.scrollBox.scrollToBottom()}>맨 밑으로</button>
+      </div>
+    );
+  }
+}
+
+export default App;
