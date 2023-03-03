@@ -1,113 +1,56 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// import React from 'react';
-
-// import React from 'react';
-
-// function App() {
-//   return (
-//     <div>
-//       <h1>리액트 안녕!</h1>
-//       <h2>잘 작동하니?</h2>
-//       <p>개싱기</p>
-//     </div>
-//   )
-// }
-
-// export default App;
-
-// import React, { Fragment } from 'react';
-
-// function App() {
-//   return (
-//     <Fragment>
-//       <h1>리액트 안녕!</h1>
-//       <h2>잘 작동하니?</h2>
-//       <p>개싱기</p>
-//     </Fragment>
-//   )
-// }
-
-// export default App;
-
-// import React from 'react';
-// import './App.css';
-
-// function App() {
-//   //변수 선언부
-//   const name = 'react';
-//   const style = {
-//     backgroundColor: 'black',
-//     color: 'aqua',
-//     fontSize: '48px',
-//     fontWeight: 'bold',
-//     padding: 16
-//   };
-
-//   console.log(1);
-//   console.log(2);
-//   console.log(3);
-//   return (
-//     <>
-//       {console.log("4")}
-//       <h1>{name} 안녕!</h1>
-//       <h2>잘 작동하니?</h2>
-//       <p>개싱기</p>
-//       {/* 조건부 랜더링 */}
-//       <div>
-//         <h1>이딴게 리액트?</h1>
-//         { name ==='react' ? (<h1>이거 리액트 맞음</h1>):(<h1>이거 리액트 아님</h1>)}
-//         { name ==='react' ? (<h1>이거 리액트 맞음</h1>):null}
-//         { name ==='react' && (<h1>이거 리액트 맞음</h1>)}
-//         { undefined || "It's undefined" }
-//       </div>
-//       <div style = { style }>
-//         스타일 테스트
-//       </div>
-//       <div className='react'>css 테스트</div>
-//     </>
-//   )
-// }
-
-// export default App;
-
-import React from 'react';
+/* eslint-disable */
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const name = '리액트';
+
+  let [글제목, 글제목변경] = useState(['글 제목 1', '글 제목2', '글 제목3']);
+  let [좋아요, 증가] = useState(0);
+  let posts = '블로그글';
+
+  function 제목바꾸기() {
+    var newArr = [...글제목]; // 딥카피를 통해 값을 똑같이 복사해서 가져와라
+    newArr[0] = '글제목 변경';
+    글제목변경(newArr);
+  }
 
   return (
-    <>
-      {/* 주석은 이렇게 작성 합니다. */}
-      <div className="react">{name}</div>
-      //하지만 이런 주석이나 /* 이런 주석은 그대로 나타나게 됩니다. */ asd
-      <input />
-    </>
+    <div className="App">
+      <div className="black-nav">
+        <div style={{fontSize: '30px'}}>개발 Blog</div>
+      </div>
+      <button onClick={()=>{제목바꾸기()}}>변경</button>
+      <div className="list">
+        <h3>{ 글제목[0] } <span onClick={() => {증가(좋아요+1)}}>👍</span> {좋아요} </h3>
+        <p>3월 2일 발행</p>
+        <hr/>
+      </div>
+      <div className="list">
+        <h3>{ 글제목[1] }</h3>
+        <p>3월 2일 발행</p>
+        <hr/>
+      </div>
+      <div className="list">
+        <h3>{ 글제목[2] }</h3>
+        <p>3월 2일 발행</p>
+        <hr/>
+      </div>
+
+      <Modal/>
+
+    </div>
+  );
+}
+//컴포넌트
+function Modal(){
+  return (
+    <div>
+      <div className="modal">
+        <h2>제목</h2>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+    </div>
   );
 }
 
