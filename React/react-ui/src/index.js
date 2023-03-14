@@ -3,15 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './redux/store'; // toolkit과 store 관련은 따로 뺌
 import { Provider } from 'react-redux';
-import { configureStore, createStore } from '@reduxjs/toolkit';
-import rootReducer from './Modules';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const store = configureStore({
-  reducer: rootReducer,
-});
 
 root.render(
   <React.StrictMode>
